@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# PERN Task Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a task management application developed using PostgreSQL, Express, React, and Node.js (PERN). Users can add, edit, delete, and view task details. Additionally, users can filter tasks by completion status and sort tasks by date or name.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Registration and Login**: Users can register and log in.
+- **Add Task**: Users can add new tasks.
+- **Edit Task**: Users can edit existing tasks.
+- **Delete Task**: Users can delete tasks.
+- **Task Details**: Users can view task details.
+- **Task Filtering**: Users can filter tasks by completion status.
+- **Task Sorting**: Users can sort tasks by date or name.
+- **Profile Update**: Users can update their profile information.
+- **Responsive Design**: The application is made responsive using Bootstrap.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Navigate to the project directory:
 
-### `npm test`
+    ```bash
+    cd /path/to/pern-app/backend
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install the required packages:
 
-### `npm run build`
+    ```bash
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the PostgreSQL database and create the necessary tables:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    createdb task_management
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Create the database configuration file:
 
-### `npm run eject`
+    ```bash
+    touch config/db.js
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Add the following content to `config/db.js`:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```javascript
+    const { Sequelize } = require('sequelize');
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    const sequelize = new Sequelize('task_management', 'username', 'password', {
+      host: 'localhost',
+      dialect: 'postgres',
+    });
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    module.exports = { sequelize };
+    ```
 
-## Learn More
+5. Start the server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    npm start
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
 
-### Code Splitting
+1. Navigate to the project directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    cd /path/to/pern-app/frontend
+    ```
 
-### Analyzing the Bundle Size
+2. Install the required packages:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    npm install
+    ```
 
-### Making a Progressive Web App
+3. Start the application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    ```bash
+    npm start
+    ```
 
-### Advanced Configuration
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Open your browser and go to `http://localhost:3000`.
+2. Register or log in.
+3. Add, edit, delete, and view task details.
+4. Filter tasks by completion status and sort tasks by date or name.
 
-### Deployment
+## Possible Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Task Prioritization**: Add priority levels for tasks.
+- **Task Tagging**: Add tags for tasks and filter by tags.
+- **Task Search**: Implement search functionality for tasks.
+- **Notifications**: Send notifications when tasks are nearing their due date.
+- **Dark Mode**: Add a dark mode option for users.
+- **Multi-language Support**: Add support for multiple languages.
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you would like to contribute, please submit a pull request or open an issue.
